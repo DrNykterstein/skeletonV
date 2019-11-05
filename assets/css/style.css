@@ -1,0 +1,94 @@
+/*** Configuraciones generales ***/
+html{
+	font-size: 62.5%; /* Reset para REM */
+	/* 62.5 = 10px de 16px */
+	box-sizing: border-box;
+}
+
+*, *:before, *:after{
+	box-sizing: inherit;
+}
+
+/***** Estilos generales *****/
+*{
+	margin:0;
+	padding:0;
+}
+
+
+body{
+    font-size:1.8rem;
+    line-height: 2;
+}
+
+h1{text-align: center;}
+
+.contenedor{
+    max-width:120rem;
+    width: 95%;
+ 	margin: 0 auto 0 auto;
+}
+
+/**** HEADER ****/
+.site-header{
+    background-color: #282828;
+    height: auto;
+}
+
+.site-header h1{
+    font-size:3rem;
+    text-transform: uppercase;
+    color:green;
+}
+
+nav a{
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    color: white; 
+    padding: 10px;
+}
+
+.contenedor-flex{
+    padding: 0 20px;
+    display: flex;/* Activo Flexbox */
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media (min-width:768px) {
+    .contenedor-flex{
+        flex-direction: row;/* Para que en dispositivos de pantalla grande, me ponga los 
+        elementos en linea */
+        justify-content: space-around;
+        /* Space Between el espacio del lado izquierdo y deja la navegacion centrada
+        es decir, que me dejara en elemento a lado izquierdo y otro al lado derecho */
+    }
+    .site-header{
+        height: auto;
+    }
+
+    nav a{
+        display: inline;
+        margin-right: 2rem;
+    }
+
+    nav a:last-of-type{
+        margin:0;
+    }
+}
+
+.navegacion{
+    align-self: center;/*Para bajar un poco la navegacion y centrarla */
+}
+
+
+nav a:hover{
+    background-color: green;
+    border-radius: 1em/5em;
+}
+
+a{
+    text-decoration: none;
+}
+ /*** --- Listo el Header ---***/
