@@ -29,7 +29,7 @@
     <!-- Encabezado con Menu, finalizado -->
 
     <!-- Contenido principal -->
-    <div class="contenedor">
+    <div class="contenedor contenido-principal"><!--Contenedor padre, para flexbox -->
         <!--Formulario para el login -->
         <aside class="sidebar">
             <div class="login block-aside"><!--Para loguearse -->
@@ -60,7 +60,7 @@
         </aside><!--sidebar -->
 
         <!--Contenido principal-->
-        <main class="principal">
+        <main class="entrada-blog">
             <h1>Últimas Entradas</h1>
             <article class="entrada">
                 <h2>VideoJuego de Guerra</h2>
@@ -82,12 +82,15 @@
                  laudantium quidem iusto, sed officia nam recusandae, natus officiis reprehenderit 
                  quo vitae inventore cumque expedita consectetur omnis dolor sint.</p>
             </article>
-        
-        
         </main><!--Contenido principal -->
 
 
-    </div><!--Contenedor -->
+    </div><!--Contenedor y contenido principal -->
+
+    <!-- Pie de pagina -->
+    <footer class="pie-pagina">
+        <p>Desarrollado por el Equipo Cryptogami </p>
+    </footer>
 
 </body>
 </html>
