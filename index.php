@@ -35,10 +35,8 @@
             <div class="login block-aside"><!--Para loguearse -->
                 <h3>Identificate</h3>
                 <form action="login.php" method="POST"><!--Llevame a login.php -->
-                    <label for="email">email</label><!--Campo donde colocaran el correo -->
-                    <input type="email" name="email">
-                    <label for="password">password</label><!--Campo donde colocaran el password -->
-                    <input type="password" name="password">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Contreseña">
                     <input type="submit" value="Entrar">
                 </form>
             </div><!-- Login -->
@@ -46,14 +44,10 @@
             <div class="registrer block-aside"><!--Para registrarse -->
                 <h3>Registrate</h3>
                 <form action="registrer.php" method="POST"><!--Llevame a registrer.php -->
-                    <label for="nombre">Nombre</label><!--Campo donde colocaran el nombre -->
-                    <input type="text" name="nombre">
-                    <label for="apellido">Apellido</label><!--Campo donde colocaran el apellido -->
-                    <input type="text" name="apellido">
-                    <label for="email">email</label><!--Campo donde colocaran el correo -->
-                    <input type="email" name="email">
-                    <label for="password">password</label><!--Campo donde colocaran el password -->
-                    <input type="password" name="password">
+                    <input type="text" name="nombre" placeholder="Nombre">
+                    <input type="text" name="apellido" placeholder="Apellido">
+                    <input type="email" name="email" placeholder="Correo Eléctronico">
+                    <input type="password" name="password" placeholder="Contraseña">
                     <input type="submit" value="Registrarse">
                 </form>
             </div><!--registrer -->
