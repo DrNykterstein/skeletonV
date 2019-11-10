@@ -109,7 +109,6 @@ a{
     padding-top:10px;
     display: flex;
     flex-wrap: wrap;/*Para que siempre se mantenga dentro del contenedor */
-    background-color:#fff;
     padding: 2rem;
 }
 
@@ -194,6 +193,11 @@ a{
 .entrada-blog h1{
     font-family: 'Ubuntu', sans-serif;
     text-align: left;
+}
+
+.entrada-blog{
+    background-color: #fff;
+    padding: 2rem;
 }
 
 .entrada{
