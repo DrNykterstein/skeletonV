@@ -1,3 +1,4 @@
+<?php require_once'includes/helpers.php'; ?>
 <!--Formulario para el login -->
 <aside class="sidebar">
     <div class="buscardor">
@@ -17,13 +18,18 @@
 
     <div class="registrer block-aside"><!--Para registrarse -->
         <h3>Registrate</h3>
-        <form action="registrer.php" method="POST"><!--Llevame a registrer.php -->
-            <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="apellido" placeholder="Apellido">
-            <input type="email" name="email" placeholder="Correo Eléctronico">
-            <input type="password" name="password" placeholder="Contraseña">
-            <input type="submit" value="Registrarse">
-        </form>
+            <form action="registro.php" method="POST"><!--Llevame a registrer.php -->
+                <input type="text" name="nombre" placeholder="Nombre">
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?>
+                <input type="text" name="apellido" placeholder="Apellido">
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellido') : ''; ?>
+                <input type="email" name="email" placeholder="Correo Eléctronico">
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : ''; ?>
+                <input type="password" name="password" placeholder="Contraseña">
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
+                <input type="submit" name="submit" value="Registrarse">
+            </form>
+            <?php borrarError(); ?>
     </div><!--registrer -->
 
 </aside><!--sidebar -->
