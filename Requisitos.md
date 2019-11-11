@@ -1,5 +1,5 @@
-1. Maquetar
-2. Pasarlo a PHP
+1. Maquetar -----> Listo
+2. Pasarlo a PHP -----> Listo
 3. Registro de usuarios
 4. Sesiones o login de usuarios
 5. Debo contener categorias y entrada
