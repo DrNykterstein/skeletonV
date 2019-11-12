@@ -1,12 +1,15 @@
 <?php
-session_start();
 
 if(isset($_POST)){
+    require_once'includes/conexion.php';
+    if(!isset($_SESSION)){
+        session_start();
+    }
     //Obtengo los valores del formulario y compruebo de que existan
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-    $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : null;
-    $email = isset($_POST['email']) ? $_POST['email'] : null;
-    $password = isset($_POST['password']) ? $_POST['password'] : null;
+    $nombre = isset($_POST['nombre']) ? filter_var($_POST['nombre'], FILTER_SANITIZE_STRING) : null;
+    $apellido = isset($_POST['apellido']) ? filter_var($_POST['apellido'], FILTER_SANITIZE_STRING) : null;
+    $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_SANITIZE_STRING) : null;
+    $password = isset($_POST['password']) ? filter_var($_POST['password'], FILTER_SANITIZE_STRING) : null;
 
     //Validaciones del formulario
     $errores = array();//Donde guardare los posibles errores
@@ -51,13 +54,29 @@ if(isset($_POST)){
      if(count($errores) == 0){
          //Guardo datos del usuario en la base de datos
         $guardar_usuario = true;
+        // Cifrar la contraseña
+        $password_cifrada = password_hash($password, PASSWORD_BCRYPT,['cost'=>4]);
+        /* password_hash recibe como parametro la variable, el tipo de cifrado y el  de 
+            iteraciones */
+        
+        //consulta sql
+        $consulta_sql = "INSERT INTO usuarios VALUES(null,'$nombre','$apellido','$email',
+           '$password_cifrada');";
 
+        //Ejecuto la consulta, pasandole la base de datos y la consulta
+        $guardar_datos = mysqli_query($db,$consulta_sql);
+        if($guardar_datos){
+            $_SESSION['completado']="Se ha registrado exitosamente";
+        }else{
+            $_SESSION['errores']['general']="Registro fallido";
+        }
      }else{
          //creo mi variable de session
          $_SESSION['errores'] = $errores;
-         //redirijo al index
-         header('Location: index.php');
+        
      }
 
-}
+} 
+//redirijo al index
+header('Location: index.php');
 ?>

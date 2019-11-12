@@ -1,7 +1,7 @@
 <?php require_once'includes/helpers.php'; ?>
 <!--Formulario para el login -->
 <aside class="sidebar">
-    <div class="buscardor">
+    <div class="buscador">
         <form action="">
           <input type="search" placeholder="Buscar Entrada" class="block-aside">
         </form>
@@ -18,6 +18,16 @@
 
     <div class="registrer block-aside"><!--Para registrarse -->
         <h3>Registrate</h3>
+        <!-- Muestro los errores -->
+        <?php if(isset($_SESSION['completado'])): ?>
+            <div class="alerta alerta-exito">
+                <?=$_SESSION['completado']?>
+            </div>
+        <?php elseif(isset($_SESSION['errores']['general'])): ?>
+            <div class="alerta alerta-exito">
+                <?=$_SESSION['errores']['general']?>
+            </div>
+        <?php endif; ?>
             <form action="registro.php" method="POST"><!--Llevame a registrer.php -->
                 <input type="text" name="nombre" placeholder="Nombre">
                 <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?>
