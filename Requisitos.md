@@ -1,6 +1,6 @@
 1. Maquetar -----> Listo
 2. Pasarlo a PHP -----> Listo
-3. Registro de usuarios
+3. Registro de usuarios ----> Listo
 4. Sesiones o login de usuarios
 5. Debo contener categorias y entrada
 6. Listar entradas
