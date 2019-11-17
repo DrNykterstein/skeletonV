@@ -6,7 +6,12 @@
           <input type="search" placeholder="Buscar Entrada" class="block-aside">
         </form>
     </div><!--buscador -->
-
+    <?php if(isset($_SESSION['usuario'])): ?>
+        <div class="login block-aside"><!--Para loguearse -->
+        <h3>Bienvenido <?=$_SESSION['usuario']['nombre'];?></h3>
+            
+    </div><!-- Login --> 
+    <?php endif; ?>
     <div class="login block-aside"><!--Para loguearse -->
         <h3>Identificate</h3>
             <form action="login.php" method="POST"><!--Llevame a login.php -->
