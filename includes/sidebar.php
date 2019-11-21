@@ -1,4 +1,4 @@
-<?php require_once'includes/helpers.php'; ?>
+
 <!--Formulario para el login -->
 <aside class="sidebar">
     <div class="buscador">
@@ -6,19 +6,31 @@
           <input type="search" placeholder="Buscar Entrada" class="block-aside">
         </form>
     </div><!--buscador -->
+    <!-- Si se inicia session correctamente -->
     <?php if(isset($_SESSION['usuario'])): ?>
         <div class="login block-aside"><!--Para loguearse -->
         <h3>Bienvenido <?=$_SESSION['usuario']['nombre'];?></h3>
-            
+        <!-- Agrego botones -->
+        <a href="cerrar.php" class="boton-cerrar">Crear entrada</a>
+        <a href="cerrar.php" class="boton-cerrar">Crear Categoria</a>
+        <a href="cerrar.php" class="boton-cerrar">Mis datos</a>
+        <a href="cerrar.php" class="boton-cerrar">Cerrar Sesion</a>
     </div><!-- Login --> 
     <?php endif; ?>
+
     <div class="login block-aside"><!--Para loguearse -->
-        <h3>Identificate</h3>
-            <form action="login.php" method="POST"><!--Llevame a login.php -->
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Contreseña">
-                <input type="submit" value="Entrar">
-            </form>
+            <h3>Identificate</h3>
+            <!-- Si falla el inicio de sesion -->
+            <?php if(isset($_SESSION['error_login'])): ?>
+                <div class="login block-aside"><!--Para loguearse -->
+                    <h3><?=$_SESSION['error_login'];?></h3>
+                </div>        
+            <?php endif; ?>
+                <form action="login.php" method="POST"><!--Llevame a login.php -->
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Contreseña">
+                    <input type="submit" value="Entrar">
+                </form>
     </div><!-- Login -->        
 
     <div class="registrer block-aside"><!--Para registrarse -->

@@ -4,8 +4,13 @@ require_once'includes/conexion.php';
 
 //Capturar los datos del formulario
 if(isset($_POST)){
+    //Borro la session del error
+    if(isset($_SESSION['error_login'])){
+        session_unset($_SESSION['error_login']);
+    }
     $correo = trim($_POST['email']);
     $contraseña = $_POST['password'];
+    
     //Consulta para verficar el correo
     $sql = "SELECT * FROM usuarios WHERE email = '$correo'";
     $login = mysqli_query($db, $sql);
@@ -16,9 +21,6 @@ if(isset($_POST)){
         if($flag){
             //Creo la session para guardar los datos
             $_SESSION['usuario']=$usuario;
-            if(isset($_SESSION['error_login'])){
-                session_unset($_SESSION['error_login']);
-            }
         }else{
             //Muestro el error
             $_SESSION['error_login'] = "Error en credenciales";

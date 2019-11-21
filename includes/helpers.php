@@ -23,4 +23,16 @@ function borrarError(){
 
 }
 
+function buscarCategorias($conexion){
+    $sql = "SELECT * FROM categoria ORDER BY id ASC;";
+    $categorias = mysqli_query($conexion, $sql);
+    $resultado = array();
+    if($categorias && mysqli_num_rows($categorias)>=1){
+        $resultado = $categorias;
+    }
+
+    return $resultado;
+
+}
+
 ?>
