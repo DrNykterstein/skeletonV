@@ -23,6 +23,7 @@ function borrarError(){
 
 }
 
+/* Función para hacer la consultar y buscar las categoris */
 function buscarCategorias($conexion){
     $sql = "SELECT * FROM categoria ORDER BY id ASC;";
     $categorias = mysqli_query($conexion, $sql);
