@@ -3,11 +3,11 @@
 <!-- Contenido principal -->
     <div class="contenedor contenido-principal"><!--Contenedor padre, para flexbox -->
         <?php require_once'includes/sidebar.php'; ?>
-        <div class="entrada-blog">
+        <div class="entrada-blog categorias">
             <h1>Crear categoria</h1>
             <form action="guardar_categoria.php" method="POST">
                     <input type="text" name="nombre" placeholder="Nombre categoria">
-                    <input type="submit" value="Guardar">
+                    <input type="submit" value="Guardar" class="boton-categoria">
             </form>
         </div>
 
