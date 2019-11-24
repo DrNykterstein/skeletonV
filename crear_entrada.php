@@ -7,7 +7,7 @@
             <h1>Crear entrada</h1>
             <form action="guardar_entrada.php" method="POST">
                     <input type="text" name="titulo" placeholder="Titulo de la entrada">
-                    <input type="text" name="descripcion" placeholder="Descripción de la entrada">
+                    <textarea placeholder="Descripción de la entrada" name="descripcion"></textarea>
                     <select name="categoria">
                         <?php 
                             $categorias = buscarCategorias($db);
