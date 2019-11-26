@@ -1,8 +1,8 @@
 1. Maquetar -----> Listo
 2. Pasarlo a PHP -----> Listo
 3. Registro de usuarios ----> Listo
-4. Sesiones o login de usuarios
-5. Debo contener categorias y entrada
+4. Sesiones o login de usuarios ---> Listo
+5. Debo contener el crear categorias y crear entrada ---> Listo
 6. Listar entradas
 7. Borrar entradas
 8. Editar entradas
