@@ -23,7 +23,7 @@ function borrarError(){
 
 }
 
-/* Función para hacer la consultar y buscar las categoris */
+/* Función para hacer la consultar y buscar las categorias */
 function buscarCategorias($conexion){
     $sql = "SELECT * FROM categoria ORDER BY id ASC;";
     $categorias = mysqli_query($conexion, $sql);
@@ -34,6 +34,18 @@ function buscarCategorias($conexion){
 
     return $resultado;
 
+}
+
+function buscarEntrada($conexion){
+    $sql = "SELECT e.*, c.* FROM entradas e".
+            "INNER JOIN categoria c ON e.categoria_id".
+            "ORDER BY e.id DESC LIMIT 4;";
+    $entradas = mysqli_query($conexion, $sql);
+    $resultado = array();
+    if($entradas && mysqli_num_rows($entradas)>=1){
+        $resultado = $entradas;
+    }
+    return $entradas;
 }
 
 ?>

@@ -23,11 +23,14 @@
                     <a href="index.php">Inicio</a>
                     <?php 
                         $categorias = buscarCategorias($db);
-                        while($categoria = mysqli_fetch_assoc($categorias)): 
+                        if(!empty($categorias)):
+                            while($categoria = mysqli_fetch_assoc($categorias)): 
                     ?>
                         <a href="categoria.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a>
-                    <?php endwhile; ?>    
-                    
+                    <?php 
+                            endwhile; 
+                        endif; 
+                    ?>    
                 </nav>
             </div><!--Navegacion -->
         </div><!-- contenedor -->
