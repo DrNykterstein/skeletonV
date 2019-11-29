@@ -17,6 +17,8 @@
         <a href="cerrar.php" class="boton-cerrar">Cerrar Sesion</a>
     </div><!-- Login --> 
     <?php endif; ?>
+    
+    <?php if(!isset($_SESSION['usuario'])): ?>
 
     <div class="login block-aside"><!--Para loguearse -->
             <h3>Identificate</h3>
@@ -58,5 +60,7 @@
             </form>
             <?php borrarError(); ?>
     </div><!--registrer -->
+
+    <?php endif; ?>
 
 </aside><!--sidebar -->
