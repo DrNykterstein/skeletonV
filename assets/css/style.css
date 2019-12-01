@@ -281,7 +281,7 @@ a{
 }
 
 .boton-cerrar:hover{
-    background-color: #007f2d;;
+    background-color: #007f2d;
     color: #fff;
 }
 
@@ -317,4 +317,10 @@ a{
     border: 1px solid #282828;
     font-family: sans-serif;
     font-size: 14px;
+}
+
+.text-verde{
+    font-weight: 700;
+    color: #007f2d;
+    margin-top:5px;
 }

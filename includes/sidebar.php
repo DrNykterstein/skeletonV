@@ -13,7 +13,7 @@
         <!-- Agrego botones -->
         <a href="crear_entrada.php" class="boton-cerrar">Crear entrada</a>
         <a href="crear_categoria.php" class="boton-cerrar">Crear Categoria</a>
-        <a href="cerrar.php" class="boton-cerrar">Mis datos</a>
+        <a href="datos.php" class="boton-cerrar">Mis datos</a>
         <a href="cerrar.php" class="boton-cerrar">Cerrar Sesion</a>
     </div><!-- Login --> 
     <?php endif; ?>
