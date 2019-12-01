@@ -39,20 +39,28 @@ if(isset($_POST)){
     $guardar_usuario = false;
      
      if(count($errores) == 0){
-         //Guardo datos del usuario en la base de datos
-        $guardar_usuario = true;
-        //consulta sql para actualizar usuario
         $usuario = $_SESSION['usuario'];
+        //Guardo datos del usuario en la base de datos
+        $guardar_usuario = true;
+        //Compruebo que el email del usuario no exista
         $usuario_id = $_SESSION['usuario']['id'];
-        $consulta_sql="UPDATE usuarios SET nombre='$nombre',apellido='$apellido',email='$email' WHERE id='$usuario_id';";
-        //Ejecuto la consulta, pasandole la base de datos y la consulta
-        $guardar_datos = mysqli_query($db,$consulta_sql);
-        if($guardar_datos){
-            //Actualizo la session
-            $_SESSION['usuario']['nombre'] = $nombre;
-            $_SESSION['completado']="Se ha actualizado  exitosamente";
+        $consulta_email = "SELECT id,email FROM usuarios WHERE email='$email';";
+        $comprobar_email = mysqli_query($db,$consulta_email);
+        //Obtengo un array asociativo
+        $user = mysqli_fetch_assoc($comprobar_email);
+        if($user['id'] == $usuario_id || empty($user)){
+            $consulta_sql="UPDATE usuarios SET nombre='$nombre',apellido='$apellido',email='$email' WHERE id='$usuario_id';";
+            //Ejecuto la consulta, pasandole la base de datos y la consulta
+            $guardar_datos = mysqli_query($db,$consulta_sql);
+            if($guardar_datos){
+                //Actualizo la session
+                $_SESSION['usuario']['nombre'] = $nombre;
+                $_SESSION['completado']="Se ha actualizado  exitosamente";
+            }else{
+                $_SESSION['errores']['general']="Actualización fallido";
+            }
         }else{
-            $_SESSION['errores']['general']="Actualización fallido";
+            $_SESSION['errores']['general']="El email ya existe";
         }
      }else{
          //creo mi variable de session
