@@ -7,5 +7,6 @@
 7. Borrar entradas
 8. Editar entradas
 9. Buscar entradas
+10. Que el usuario pueda editar sus datos ----> Listo
 
 NOTA: Las contraseñas se deben guardar de forma cifrada en la base de datos
