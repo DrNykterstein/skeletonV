@@ -13,11 +13,18 @@
         <main class="entrada-blog">
                 <h1><?=$entrada_actual['titulo']; ?></h1>
                 <a href="categoria.php?id=<?=$entrada_actual['categoria_id'];?>">
-                    <span class="text-verde"><?=$entrada_actual['categoria']; ?></span>
+                    <span class="text-verde"><?=$entrada_actual['categoria'];?></span>
                 </a>
-                <span class="text-verde">--<?=$entrada_actual['fecha']; ?></span>
+                <br>
+                <span class="text-verde"><?=$entrada_actual['usuario'];?> | <?=$entrada_actual['fecha']; ?></span>
                 <p><?=$entrada_actual['descripcion']; ?></p>
-            </main><!--Contenido principal -->
+                <?php 
+                    if(isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $entrada_actual['usuario_id']):
+                ?>
+                <a href="editar_entrada.php?id=<?=$entrada_actual['id'];?>" class="boton boton-principal">Editar entrada entrada</a>
+                <a href="borrar_entrada.php?id=<?=$entrada_actual['id'];?>" class="boton boton-principal">Borrar entrada entrada</a>
+                <?php endif; ?>
+        </main><!--Contenido principal -->
         </div>
     <!-- Pie de pagina -->
     <?php require_once'includes/footer.php'; ?>
