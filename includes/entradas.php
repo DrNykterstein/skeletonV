@@ -2,7 +2,7 @@
 <main class="entrada-blog">
         <h1>Últimas Entradas</h1>
         <?php
-           $entradas = buscarEntrada($db);
+           $entradas = buscarEntrada($db,true);
            if(!empty($entradas)):
                while($entrada = mysqli_fetch_assoc($entradas)):
           
@@ -18,5 +18,5 @@
                endwhile;
            endif;
         ?>
-       
+       <a href="listar_entradas.php" class="boton boton-principal contenedor">Ver todas las entradas</a>
 </main><!--Contenido principal -->

@@ -35,10 +35,33 @@ function buscarCategorias($conexion){
     return $resultado;
 
 }
+// Para que me diga el nombre de la categoria 
+function categoriasEntrada($conexion,$id){
+    $sql = "SELECT * FROM categoria WHERE id=$id;";
+    $categorias = mysqli_query($conexion, $sql);
+    $resultado = array();
+    if($categorias && mysqli_num_rows($categorias)>=1){
+        $resultado = mysqli_fetch_assoc($categorias);
+    }
 
-function buscarEntrada($conexion){
+    return $resultado;
+
+}
+
+function buscarEntrada($conexion,$limite=null,$categoriaE=null){
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e INNER JOIN categoria c ON e.categoria_id = c.id 
-        ORDER BY e.id DESC LIMIT 4";
+         ";
+
+    if(!empty($categoriaE)){
+        $sql .= "WHERE e.categoria_id = $categoriaE"; 
+    }
+
+    $sql .= " ORDER BY e.id DESC ";
+
+    if($limite){
+        $sql .= "LIMIT 4";
+    }
+
     $entradas = mysqli_query($conexion, $sql);
     $resultado = array();
     if($entradas && mysqli_num_rows($entradas)>=1){
@@ -46,5 +69,5 @@ function buscarEntrada($conexion){
     }
     return $entradas;
 }
-
 ?>
+
