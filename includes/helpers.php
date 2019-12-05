@@ -48,6 +48,17 @@ function categoriasEntrada($conexion,$id){
 
 }
 
+function descripcionEntrada($conexion, $id){
+    $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e INNER JOIN categoria c ON e.categoria_id = c.id WHERE e.id = $id;";
+    $ejecutar_consulta = mysqli_query($conexion, $sql);
+    $resultado = array();
+    if($ejecutar_consulta && mysqli_num_rows($ejecutar_consulta)>=1){
+        //Guardo el array en resultado
+        $resultado = mysqli_fetch_assoc($ejecutar_consulta);
+    }
+    return $resultado;
+}
+
 function buscarEntrada($conexion,$limite=null,$categoriaE=null){
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e INNER JOIN categoria c ON e.categoria_id = c.id 
          ";

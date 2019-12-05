@@ -15,7 +15,7 @@
                     <h2><?=$entrada['titulo']; ?></h2>
                     <span class="text-verde"><?=$entrada['categoria']; ?></span>
                     <p><?=$entrada['descripcion']; ?></p>                
-                    <a href="entrada.php" class="boton boton-principal">Leer Entrada</a>
+                    <a href="entrada.php?id=<?=$entrada['id']?>" class="boton boton-principal">Leer Entrada</a>
                 </article>
             
                 <?php       
